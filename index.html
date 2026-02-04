@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parse HTML</title>
+
+  <link href="icon/favicon.png" rel="icon" sizes="192x192" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="style.css" />
+
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        if (!saved) saved = "light";
+        document.documentElement.setAttribute("data-theme", saved);
+      } catch (e) {}
+    })();
+  </script>
+
+  <script src="parse.js" defer></script>
+</head>
+
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="wrap">
+        <div class="brand">
+          <h1 class="title">Tool Parse HTML</h1>
+          <p class="subtitle">
+            Tool Parse HTML ini berfungsi untuk menyesuaikan kode HTML agar dapat ditampilkan dengan benar di CMS Blogger.
+            Biasanya metode Parse HTML ini digunakan saat menyisipkan kode HTML di dalam artikel atau memasang kode script iklan
+            Google Adsense di dalam template agar tidak error saat disimpan.
+          </p>
+        </div>
+
+        <div class="actions">
+          <div class="themeSwitch" aria-label="Toggle dark mode">
+            <span class="themeLabel" id="themeLabel">Light</span>
+            <button class="switch" id="themeToggle" type="button" role="switch" aria-checked="false" aria-label="Dark mode">
+              <span class="knob" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="wrap">
+        <section class="card">
+          <div id="parse-html">
+            <div class="editorHead">
+              <span class="hint">Tempel / tulis kode HTML di bawah, lalu klik Start Parse Code.</span>
+            </div>
+
+            <textarea id="somewhere" placeholder="Write or paste HTML code here..."></textarea>
+
+            <div class="alert alert-success collapse" id="btnInfo" role="alert" aria-live="polite">
+              <button class="close close-copy" type="button" onclick="hideToast();">
+                <span aria-hidden="true">×</span>
+              </button>
+              <h4>Code copied to clipboard</h4>
+            </div>
+
+            <div class="btnRow">
+              <button onclick="convert();" class="btn btn-primary btn-parse" type="button">
+                Start Parse Code
+              </button>
+
+              <div class="btnGroup">
+                <button
+                  class="btn btn-success button-link is-hidden"
+                  id="button-link"
+                  type="button">
+                  Copy to Clipboard
+                </button>
+
+                <button class="btn btn-danger" id="btn_clear" onclick="cdClear();" type="button">
+                  Reset / Clean Code
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p>Tool Parse HTML by. <a href="https://indradp.web.id" rel="nofollow noopener" target="_blank">Indra DP</a></p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
